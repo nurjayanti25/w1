@@ -130,7 +130,7 @@ Anda ingin mengetahui hal-hal apa sajakah yang dapat mempengaruhi skor penilaian
 ```r
 ggplot(evals, aes(x = bty_avg, y = score)) +
   geom_point()+
-  labs(title = "Without jitter")
+  labs(title = "geom_point")
 ```
 
 ![](005_model_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
@@ -141,7 +141,7 @@ Anda mendapati suatu fenomena pada grafik diatas, yaitu *overplotting*. *Overplo
 ```r
 ggplot(evals, aes(x = bty_avg, y = score)) +
   geom_jitter() +
-  labs(title = "With jitter")
+  labs(title = "geom_jitter")
 ```
 
 ![](005_model_files/figure-html/unnamed-chunk-4-1.png)<!-- -->

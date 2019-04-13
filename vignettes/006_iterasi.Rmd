@@ -86,7 +86,7 @@ Silakan lengkapi kode berikut untuk mengimpor berkas csv dengan menggunakan fung
 
 ```{r}
 daftar_berkas
-output_lapply <- lapply(1:length(daftar_berkas), function(i) read_csv(daftar_berkas[i]))
+output_lapply <- lapply(daftar_berkas, read_csv)
 output_lapply
 ```
 

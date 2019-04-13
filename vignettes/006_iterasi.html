@@ -496,7 +496,7 @@ output &lt;- lapply(input, nama_fungsi)</code></pre>
 ## [3] &quot;../data-raw/003_lelang-bandung_2015.csv&quot;
 ## [4] &quot;../data-raw/004_lelang-bandung_2016.csv&quot;
 ## [5] &quot;../data-raw/005_lelang-bandung_2017.csv&quot;</code></pre>
-<pre class="r"><code>output_lapply &lt;- lapply(1:length(daftar_berkas), function(i) read_csv(daftar_berkas[i]))
+<pre class="r"><code>output_lapply &lt;- lapply(daftar_berkas, read_csv)
 output_lapply</code></pre>
 <pre><code>## [[1]]
 ## # A tibble: 680 x 32

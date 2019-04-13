@@ -49,7 +49,7 @@ Anda ingin mengetahui hal-hal apa sajakah yang dapat mempengaruhi skor penilaian
 ```{r}
 ggplot(evals, aes(x = bty_avg, y = score)) +
   geom_point()+
-  labs(title = "Without jitter")
+  labs(title = "geom_point")
 ```
 
 Anda mendapati suatu fenomena pada grafik diatas, yaitu *overplotting*. *Overplotting* adalah kondisi dimana banyak titik-titik yang bertumpuk karena memiliki nilai yang sama. Hal tersebut dapat diperbaiki dengan menggunakan *jitter*. Dapatkah Anda menemukan perbedaan antara grafik di atas dengan grafik berikut? Berilah judul pada grafik berikut dan grafik sebelumnya.
@@ -57,7 +57,7 @@ Anda mendapati suatu fenomena pada grafik diatas, yaitu *overplotting*. *Overplo
 ```{r}
 ggplot(evals, aes(x = bty_avg, y = score)) +
   geom_jitter() +
-  labs(title = "With jitter")
+  labs(title = "geom_jitter")
 ```
 
 Anda mendapati bahwa hanya dengan melakukan pengamatan dari grafik tidaklah cukup untuk mempelajari keterkaitan antara `score` dan `bty_avg`. Oleh karena itu, Anda ingin membuat pemodelan regresi linier untuk mempelajari keterkaitan antara kedua variabel tersebut. Buatlah pemodelan tersebut dengan menggunakan fungsi `lm()` dan simpanlah hasilnya dengan nama 'model1'! (Petunjuk: Jalankan `?lm` untuk membaca dokumentasi). Dapatkah Anda menuliskan persamaan linear yang didapatkan dari model1 tersebut?

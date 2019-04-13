@@ -283,7 +283,7 @@ daftar_berkas
 ```
 
 ```r
-output_lapply <- lapply(1:length(daftar_berkas), function(i) read_csv(daftar_berkas[i]))
+output_lapply <- lapply(daftar_berkas, read_csv)
 output_lapply
 ```
 
