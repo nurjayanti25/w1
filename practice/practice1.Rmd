@@ -21,12 +21,94 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Section 1
+## Read and Write CSV
+
+
 ```{r}
-head()
+library(readr)
+```
+
+How to read csv file: read_csv untuk delimiter , dan read_csv2 untuk delimiter ;
+```{r}
+dc <- read_csv("data-raw/evals.csv")
+dc2 <- read_csv2("data-raw/evals2.csv")
+
+
+identical(dc, dc2) # fungsi untuk cek kesamaan antara dua obyek
+```
+fungsi `glimpse` dari paket `dplyr`dan fungsi `skim()` dari paket `skimr` untuk melihat ringkasan data.
+```{r}
+library(dplyr)
+glimpse(evals)
+
+library(skimr)
+skim(evals)
 ```
 
 
-## Section 2
+
+```{r}
+plot(iris) # membuat plot
+cor(iris[, -5]) # membuat matriks korelasi pada semua kolom berjenis numerik
+```
+
+Save 
+```{r}
+write.csv(iris, file = "dc.csv", row.names = FALSE) # menyimpan iris menjadi berkas csv 
+
+```
+
+
+
+
+
+
+## Functions
+Function:
+```{r}
+dc # mencetak data di konsol
+dim(dc) # memberikan dimensi dari data. Angka pertama merupakan jumlah baris dan angka kedua adalah jumlah kolom
+str(dc) # mencetak struktur dari data (jumlah baris, jumlah kolom, nama kolom, jenis data pada kolom)
+colnames(dc) # mencetak nama dari setiap kolom
+head(dc) # mencetak 6 baris pertama pada data
+head(dc, 10) # mencetak 10 baris pertama pada data
+tail(dc) # mencetak 6 baris terakhir pada data
+tail(dc, 10) # mencetak 10 baris terakhir pada data
+summary(dc) # mencetak rangkuman data
+dc[1, ] # subset data pada baris 1
+dc[c(1, 6, 12),] # subset data pada baris 1, 6, dan 12
+dc[ ,2] # subset atau ekstrak data pada kolom 2
+dc[2,2] # ekstrak nilai pada baris 2 dan kolom 2
+dc$gender# ekstrak data pada kolom
+class(dc$gender) # mengetahui jenis data dari suatu vektor
+length(dc$gender) # mengetahui jumlah data pada suatu vektor
+levels(dc$gender) # mengetahui level dari kolom berjenis faktor
+length(levels(dc$gender)) # mengetahui jumlah level dari kolom berjenis faktor
+unique(dc$gender) # mengetahui nilai unik dari kolom berjenis karakter atau faktor
+length(unique(dc$gender)) # mengetahui jumlah nilai unik dari kolom berjenis karakter atau faktor
+mean(dc$age) # menghitung rerata
+sd(dc$age) # menghitung standar deviasi
+median(dc$age) # menghitung median
+sum(dc$age) # menghitung jumlah total
+```
+
+#Struktur data
+```{r}
+c(1, 2, 3, 4)
+c("r", "academy", "telkom", "university")
+list(15, "r", "TRUE", 24L)
+
+huruf_vokal <- c("a", "i", "u", "e", "o") # objek data tersimpan dengan nama 'huruf_vokal', namun tidak tercetak pada konsol
+huruf_vokal # mencetak objek data dengan nama 'huruf_vokal' pada konsol
+```
+
+Jenis dari data dapat diketahui dengan menggunakan fungsi `typeof()`. Dapatkah Anda mengetahui jenis data dari 'huruf_vokal' diatas? Bagaimana jika Anda membuat objek data dengan menggunakan fungsi `c()` namun jenis elemennya berbeda-beda?
+
+```{r}
+c(huruf_vokal)
+
+beragam <- c(2.7, "berbeda", TRUE, 4L) # 2.7 bertipe double, "berbeda" bertipe character, TRUE bertipe logical, 4L bertipe integer
+typeof(c) # cek tipe dari objek data dengan nama 'beragam'
+```
 
 
