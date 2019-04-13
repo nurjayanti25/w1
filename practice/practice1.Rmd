@@ -111,4 +111,14 @@ beragam <- c(2.7, "berbeda", TRUE, 4L) # 2.7 bertipe double, "berbeda" bertipe c
 typeof(c) # cek tipe dari objek data dengan nama 'beragam'
 ```
 
+## Transformasi Data
+```{r}
+library(tidyr)
+dc
+
+tb <- dc%>%
+      select(gender,age)
+
+```
+
 
