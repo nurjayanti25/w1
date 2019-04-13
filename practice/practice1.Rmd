@@ -30,8 +30,10 @@ library(readr)
 
 How to read csv file: read_csv untuk delimiter , dan read_csv2 untuk delimiter ;
 ```{r}
-dc <- read_csv("data-raw/evals.csv")
-dc2 <- read_csv2("data-raw/evals2.csv")
+dc <- read_csv("../data-raw/evals.csv")
+dc
+dc2 <- read_csv2("../data-raw/evals2.csv")
+
 
 
 identical(dc, dc2) # fungsi untuk cek kesamaan antara dua obyek
@@ -39,10 +41,10 @@ identical(dc, dc2) # fungsi untuk cek kesamaan antara dua obyek
 fungsi `glimpse` dari paket `dplyr`dan fungsi `skim()` dari paket `skimr` untuk melihat ringkasan data.
 ```{r}
 library(dplyr)
-glimpse(evals)
+glimpse(dc)
 
 library(skimr)
-skim(evals)
+skim(dc)
 ```
 
 
@@ -92,7 +94,7 @@ median(dc$age) # menghitung median
 sum(dc$age) # menghitung jumlah total
 ```
 
-#Struktur data
+## Struktur data
 ```{r}
 c(1, 2, 3, 4)
 c("r", "academy", "telkom", "university")
@@ -117,8 +119,34 @@ library(tidyr)
 dc
 
 tb <- dc%>%
-      select(gender,age)
+      select(gender,age, score)%>%
+      group_by(gender)%>%
+      count(gender)
+
+tb
 
 ```
+
+## Visualisasi Data
+```{r}
+library(ggplot2)
+
+ggplot(data = dc, aes(x=age, y=bty_avg, colour=gender))+
+  geom_point()
+```
+
+```{r}
+ggplot(data = evals, aes(x = age, y = score, colour = ethnicity)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(
+    x = "Age",
+    y = "Score",
+    title = "Ethnicity"
+  )
+```
+
+
+
 
 
